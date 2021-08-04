@@ -1,8 +1,17 @@
+#Filling out the room from right to left
+
+# Moving the picobot to the very Northeast side
 0 X*** -> N 0
 0 N*** -> E 1
+
+# Going down to South
 1 NX** -> E 1
 1 NE** -> S 2
+
+# Moving a block to the West
 2 ***x -> S 2
 2 ***S -> W 3
+
+# Going up to North
 3 X*** -> N 3
 3 N*** -> W 2

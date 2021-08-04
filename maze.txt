@@ -1,8 +1,17 @@
+# Moving Picobot to the right in a loop to fill all empty parts of the maze.
+
+# State 0 provides instructions for the bot for the east direction. If there's a wall on the east side, the bot stops and enters state 2. If the bot sees no wall, it moves east and enters state 1.
 0 *x** -> e 1
 0 *e** -> x 2
+
+#State 1 provides instructions for the bot for the south direction. If there's a wall on the south, the bot stops and enters state 0. If there isn't a wall, the bot moves south and enters state 3.
 1 ***x -> s 3
 1 ***s -> x 0
+
+# State 2 provides instructions for the bot for the North direction. If there is a wall on North, the bot stops and enters state 3. If there is no wall, the bot moves to North and enters state 0. 
 2 x*** -> n 0
 2 N*** -> x 3
+
+#State 3 provides instructions for the bot for the west direction. If the bot encounters a wall, it stops and enters state 1. If the bot does not see a wall, it moves west and enters state 2.
 3 **x* -> w 2
 3 **w* -> x 1
