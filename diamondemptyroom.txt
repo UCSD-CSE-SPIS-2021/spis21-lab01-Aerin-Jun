@@ -1,0 +1,25 @@
+# Picobot solution for any start point in the diamond shaped empty room
+
+# State 0 provides directions that focus on whether the North is blocked or not. Picobot's goal is always to move to the northernmost open spot to begin so the clearing goes in an up and down pattern. 
+0 XXXX -> N 0
+0 NEXX -> S 1
+0 NXWX -> S 1
+0 XEXS -> N 0
+0 NEXS -> W 3
+0 NEWX -> S 1
+
+# State 1 provides directions that focus on whether the South is blocked or not. Picobot uses these commands to complete the up and down movements to clear whole columns before moving to the next column.
+1 XXXX -> S 1
+1 XEXS -> N 2
+1 XXWS -> N 2
+1 XEWS -> N 2
+
+# State 2 provides direction that move Picobot over to the next column in the East direction.
+2 XXXX -> E 0
+
+# State 3 provides information that allows Picobot to successfully maneuver going in the West direction.
+3 XXXX -> W 3
+3 NXW* -> E 4
+
+# State 4 allows Picobot to stop before moving again to avoid trapping Picobot in a certain area in an endless loop.
+4 XXXX -> X 0
